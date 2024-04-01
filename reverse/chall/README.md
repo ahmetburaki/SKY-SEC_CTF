@@ -2,6 +2,7 @@
 
 flag: `SKYSEC{1e9af21d6f21d6f1e9af2fc2f1e9af2fc2f29daf1e9af21d6f2242f296ef2f56f1e2ef1f96f2242f2f56f29daf1e2ef1e9af3a96f2242f296ef21d6f2f56f2002f375af1e9af2002f2242f2002f1e9af}`
 
+# Writeup
 Elimizdeki dosyanin bir elf dosyasi oldugunu ilk is olarak file komutuyla inceledikten sonra ogreniyoruz.
 
 chal: ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID[sha1]=b839671aedb7184024bafc0db695cf851ea9cdd2, for GNU/Linux 3.2.0, stripped
