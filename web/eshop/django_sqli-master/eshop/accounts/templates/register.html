@@ -1,0 +1,30 @@
+{% extends "accounts_layout.html" %}
+{% load static %}
+{% block content %}
+<div class="wrapper">
+	<div class="inner">
+		<img src="{% static "accounts/images/image-1.png" %}" alt="" class="image-1">
+		<form method='POST'>
+			{% csrf_token %}
+			<h3>New Account?</h3>
+			<div class="form-holder">
+				<span class="lnr lnr-user"></span>
+				<input type="username" class="form-control" placeholder="Username" name='username'>
+			</div>
+			<div class="form-holder">
+				<span class="lnr lnr-envelope"></span>
+				<input type="email" class="form-control" placeholder="Mail" name='email'>
+			</div>
+			<div class="form-holder">
+				<span class="lnr lnr-lock"></span>
+				<input type="password" class="form-control" placeholder="Password" name='password'>
+			</div>
+			<button>
+				<span>Register</span>
+			</button>
+		</form>
+		<img src="{% static "accounts/images/image-2.png" %}" alt="" class="image-2">
+	</div>
+	
+</div>
+{% endblock content %}
