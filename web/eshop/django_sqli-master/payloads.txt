@@ -1,0 +1,7 @@
+year', "app_product"."date") AS "year_field" FROM "app_product"
+
+year', "app_product"."date") AS "year_field" FROM "app_product" UNION SELECT null, null, null, null, null, null, null, null-- -
+
+(SELECT flag FROM flag LIMIT 1)
+
+year', "app_product"."date") AS "year_field" FROM "app_product" UNION SELECT null, null, 3, null, (SELECT flag FROM flag LIMIT 1), 6, 7, 8-- -
