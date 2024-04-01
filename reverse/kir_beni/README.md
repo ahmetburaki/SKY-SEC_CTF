@@ -7,10 +7,10 @@ flag: `SKYSEC{K4RT4LLAR_YUKSEKTEN_UC4R}`
 Soru dnSpy üzerinde açıldığında ConfuserEx imzası görülebiliyor. AntiTamper var mı yok mu diye kontrol etmek için EntryPoint'e gidildiğinde decompiler'ın hata verdiği görülüyor. Module cctor kısmında bulunan 2. çağrıya breakpoint atılıp debugging başlatıldığında, Modules sekmesine gelen modül Memory'de açılır. Runtime'da denemeler yapabilmek için açılan modül üzerinde yine cctor noktasına gidip ilk çağrı noplanır ve dosya kaydedilir.
 
 ### Çözüm 1
-Flag'in 32 karakter olduğunu ve xor işlemine sokulduğu tahmin edilebilir(*). Debug ederek xor edilmiş flag dizisine ulaştıktan sonra brute force atarak flag elde edilebilir.
+Flag'in 32 karakter olduğu biliniyor. Yapılan işlemler ile xor işlemine sokulduğu tahmin edilebilir(*). Debug ederek xor edilmiş flag dizisine ulaştıktan sonra brute force atarak flag elde edilebilir.
 
 ### Çözüm 2
-XOR işlemi yapılan Dynamic IL operasyonundan dolayı görülemeyebilir. Dynamic IL üretildiği sırada yüklenen IL Body yine debug edilerek(deobfuscate etme ile uğraşmadıysanız) elde edilebilir. Bunu disassemble ettiğimizde 0x22 değeri ile xor operasyonuna sokulup retlendiği görülür.
+XOR işlemi yapılan Dynamic IL operasyonundan dolayı görülemeyebilir. Dynamic IL üretildiği sırada yüklenen IL Body yine debug edilerek(deobfuscate etme ile uğraşmadıysanız) elde edilebilir. Bu disassemble edildiğinde 0x22 değeri ile xor operasyonuna sokulup retlendiği görülür.
 
 ```csharp
  byte[] sQEtshExuA = {
