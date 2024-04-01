@@ -11,7 +11,7 @@ Uygulama içerisinde biraz gezildikten sonra İstanbul'daki yerlerden **Tarihi H
 ## Dosya Analizi
 
 .apk dosyasını analiz ettiğimizde *Tarihi Hamam* sayfasında fotoğraf gösterilmemesine rağmen **assets\flutter_assets\images** dizininde **tarihihamam.png** dosyası bizi karşılıyor. Ama bu dosya açıldığında fotoğraf gösterilemiyor.
-Bu dosyayı herhangi bir hex düzenleyicisinde incelediğimizde bu dosya .png uzantılı bir dosya olduğu için, header'ı onaltılık sistemde **89 50 4E 47 0D 0A 1A 0A** olması gerekirken **89 50 4E 47 33 31 1A 0A** olduğunu fark ediyoruz. 
+Bu dosyayı herhangi bir hex düzenleyicisinde incelediğimizde bu dosya .png uzantılı bir dosya olduğu için, header'ı onaltılık sistemde `89 50 4E 47 0D 0A 1A 0A` olması gerekirken `89 50 4E 47 33 31 1A 0A` olduğunu fark ediyoruz. 
 Header'ları düzenledikten sonra .png dosyası gerektiği gibi açılıyor.
 
 ## Flag Elde Etme
