@@ -3,7 +3,6 @@
 flag: `SKYSEC{C0NGR4TS_Y0U_3SC4P3D_TH3_M4TR1X}`
 
 # Writeup
-# Giriş
 
 Bu yazı YTÜ SKYLAB kulübünün düzenlediği SKYDAYS etkinliğindeki CTF
 yarışmasındaki sorunun çözümünü anlatmaktadır. Sorunun tek çözümü bu
