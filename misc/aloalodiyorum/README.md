@@ -3,13 +3,12 @@
 flag: `SKYSEC{Baumeisterstraße}`
 
 # Writeup
-# Giriş
 
 Bu yazı YTÜ SKYLAB kulübünün düzenlediği SKYDAYS etkinliğindeki CTF yarışmasındaki sorunun çözümünü anlatmaktadır. Sorunun tek çözümü bu değildir, başka çözümler olabilmektedir.
 
 # Soru
 
-![1.jpeg](SKYDAYS%20CTF%20MISC-01%20fbbe09aca3f743e4aecb4afb0ddaa496/1.jpeg)
+![1](assets/1.jpeg)
 
  Arkadaşım bana telefonunu kaybettiğini ve telefonun şarjı bittiği için telefonunu bulamadığını söyledi. Kendisinin bulut depolamasına baktığımızda en son çekilen fotoğrafın bu olduğunu gördük. Arkadaşımın telefonunu bulmasına yardım eder misin? (Bayrak şu şekildedir: SKYSEC{fotoğraftaki benzin istasyonunun bulunduğu sokağın adı})
 
@@ -17,7 +16,7 @@ Bu yazı YTÜ SKYLAB kulübünün düzenlediği SKYDAYS etkinliğindeki CTF yar�
 
  Fotoğrafı inceleyelim ve bu fotoğrafın nereden çekildiğini bulmamız için ipucu toplayalım:
 
-![Untitled](SKYDAYS%20CTF%20MISC-01%20fbbe09aca3f743e4aecb4afb0ddaa496/Untitled.png)
+![2](assets/2.png)
 
 1. Camda indirim afinişi görüyoruz ve bu afiş “kik” adındaki mağazaya aitmiş.
 2. Bir benzin istasyonunun yakınında çekilmiş fotoğrafımız.
@@ -29,28 +28,28 @@ Bu yazı YTÜ SKYLAB kulübünün düzenlediği SKYDAYS etkinliğindeki CTF yar�
 
  Plakanın mavi kısmında ‘D’ harfinin olması alman plakası olduğu anlamına geliyor. ‘DN’ kısmını aratırsak ise plakanın ‘Düren’ kayıtlı olduğunu görüyoruz:
 
-![Untitled](SKYDAYS%20CTF%20MISC-01%20fbbe09aca3f743e4aecb4afb0ddaa496/Untitled%201.png)
+![3](assets/3.png)
 
  1 numaralı ipucundaki “kik” yazısını internette arattığımızda markanın bir alman giyim mağazası olduğunu görüyoruz. Bu iki ipucu fotoğrafın Almanya’da olabileceğini kuvvetlendiriyor.
 
  Almanya’daki benzin istasyonlarının fotoğraflarına internetten bakalım:
 
-![Untitled.jpg](SKYDAYS%20CTF%20MISC-01%20fbbe09aca3f743e4aecb4afb0ddaa496/Untitled.jpg)
+![4](assets/4.jpg)
 
  Burada bir fotoğraf dikkatimizi çekiyor, bize verilen fotoğraftakine çok benzer renk ve desene sahip benzin istasyonunu görüyoruz. Markanın adının “star” olduğunu öğreniyoruz. Almanya-Düren’deki “star” benzin istasyonlarını “Google Earth”de aratalım:
 
-![temp.jpg](SKYDAYS%20CTF%20MISC-01%20fbbe09aca3f743e4aecb4afb0ddaa496/temp.jpg)
+![5](assets/5.jpg)
 
  Bu istasyonlara baktığımızda fotoğraftakine benzer bir yeri göremiyoruz. Düren yerine tüm Almanya’yı aratalım:
 
-![temp.jpg](SKYDAYS%20CTF%20MISC-01%20fbbe09aca3f743e4aecb4afb0ddaa496/temp%201.jpg)
+![6](assets/6.jpg)
 
  Karşımıza çıkan istasyonların resimlerine göz attığımızda işaretli yerdeki istasyonun fotoğrafa benzediğini görüyoruz. Yakından bakalım:
 
-![temp.jpg](SKYDAYS%20CTF%20MISC-01%20fbbe09aca3f743e4aecb4afb0ddaa496/temp%202.jpg)
+![7](assets/7.jpg)
 
  Sokak görüntüsüne geçtiğimizde istasyonun ve çevresinin bize verilen fotoğrafla uyuştuğunu görüyoruz. Konumu bulduk, bayrak için istasyonun adresine ihtiyacımız var:
 
-![Untitled.jpg](SKYDAYS%20CTF%20MISC-01%20fbbe09aca3f743e4aecb4afb0ddaa496/Untitled%201.jpg)
+![8](assets/8.jpg)
 
  Böylelikle bayrağımızı bulmuş olduk: SKYSEC{Baumeisterstraße}.
