@@ -1,6 +1,8 @@
-# SKYDAYS CTF PWN-01
+# pwn1 - PWN
 
-# Giriş
+flag: `SKYSEC{W0W_Y0U'R3_4_H4CK3R_H0W_CH4R15M4T1C}`
+
+# Writeup
 
  Bu yazı YTÜ SKYLAB kulübünün düzenlediği SKYDAYS etkinliğindeki CTF yarışmasındaki sorunun çözümünü anlatmaktadır. Sorunun tek çözümü bu değildir, başka çözümler olabilmektedir.
 
