@@ -13,7 +13,7 @@ değildir, başka çözümler olabilmektedir.
 
 Bize verilen dosyayı çalıştırdığımızda şöyle bir ekran karşımıza çıkmakta:
 
-![Untitled](SKYDAYS%20CTF%20PWN-02%200c4695a69c1b43508fafd418fbb9a8eb/Untitled.png)
+![0](assets/0.png)
 
 Bizden iki kere girdi alıyor ve ilk girdimizi ekrana yazdırıyor.
 
@@ -21,21 +21,21 @@ Bizden iki kere girdi alıyor ve ilk girdimizi ekrana yazdırıyor.
 
 Dosyayı inceleyelim:
 
-![Untitled](SKYDAYS%20CTF%20PWN-02%200c4695a69c1b43508fafd418fbb9a8eb/Untitled%201.png)
+![1](assets/1.png)
 
-![Untitled](SKYDAYS%20CTF%20PWN-02%200c4695a69c1b43508fafd418fbb9a8eb/Untitled%202.png)
+![2](assets/2.png)
 
 Dosyamız 64-bit ve Canary aktif.
 
-![Untitled](SKYDAYS%20CTF%20PWN-02%200c4695a69c1b43508fafd418fbb9a8eb/Untitled%203.png)
+![3](assets/3.png)
 
 Dosyadaki vuln() fonksiyonumuza bakarsak burada iki adet zaafiyetle karşılaşıyoruz:
 1-printf(buffer); kodu bizim bellekten değer okumamıza kapı açıyor.
 2-gets(buffer); kodu buffer’ın üzerine istediğimiz değerleri yazmamızı sağlıyor.
 
-![Untitled](SKYDAYS%20CTF%20PWN-02%200c4695a69c1b43508fafd418fbb9a8eb/Untitled%204.png)
+![4](assets/4.png)
 
-![Untitled](SKYDAYS%20CTF%20PWN-02%200c4695a69c1b43508fafd418fbb9a8eb/Untitled%205.png)
+![5](assets/5.png)
 
 Yukarıdaki iki fonksiyona baktığımızda ise şunları görüyoruz:
 *flag* fonksiyonu anlaşılabildiği üzere flag’imizi içeriyor fakat daha öncesinde “What is the password?” diye bir çıktı alıyoruz. Yani bir tür şifreye ihtiyacımız var.
@@ -128,11 +128,11 @@ io.interactive()
 Bunları dosyamıza göre ayarladığımızda elde edeceğimiz çıktılar:
 Şifremiz:
 
-![Untitled](SKYDAYS%20CTF%20PWN-02%200c4695a69c1b43508fafd418fbb9a8eb/Untitled%206.png)
+![6](assets/6.png)
 
 Flag:
 
-![Untitled](SKYDAYS%20CTF%20PWN-02%200c4695a69c1b43508fafd418fbb9a8eb/Untitled%207.png)
+![7](assets/7.png)
 
 ---
 
