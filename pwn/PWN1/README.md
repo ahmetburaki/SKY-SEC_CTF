@@ -8,7 +8,7 @@
 
  Bize “chal” isimli bir dosya verilmiş, bu dosyayı açtığımızda karşımıza şöyle bir ekran çıkmakta:
 
-![Untitled](SKYDAYS%20CTF%20PWN-01%2074b99a0800c0420ba88c7719d3edc728/Untitled.png)
+![Untitled](assets/0.png)
 
  Program bizden bir girdi alıyor ve aldığı girdiği ekrana yazdırıyor. Bu durumda bizden sorunun içerdiği bayrağı bulmamız isteniyor.
 
@@ -16,31 +16,31 @@
 
  Bize verilen dosyanın özelliklerine bakalım:
 
-![Untitled](SKYDAYS%20CTF%20PWN-01%2074b99a0800c0420ba88c7719d3edc728/Untitled%201.png)
+![Untitled](assets/1.png)
 
-![Untitled](SKYDAYS%20CTF%20PWN-01%2074b99a0800c0420ba88c7719d3edc728/Untitled%202.png)
+![Untitled](assets/2.png)
 
  Dosyanın 64-bit mimaride, ‘little endian’ biçimde, dinamik olarak bağlanmış ve ‘stripped’ olduğunu; koruma olarak ise ‘NX’ ve ‘Partial RELRO’ içerdiğini görüyoruz.
 
  Dosyamızda bayrağın nerede olduğunu öğrenmek için dosyayı ‘ghidra’ ile inceleyelim:
 
-![Untitled](SKYDAYS%20CTF%20PWN-01%2074b99a0800c0420ba88c7719d3edc728/Untitled%203.png)
+![Untitled](assets/3.png)
 
  Dosyamız ‘stripped’ olduğundan fonksiyonların isimlerine ulaşamıyoruz. Bundan dolayı programın ne yaptığını anlamak için “entry” fonksiyonundan başlayarak inceleyelim:
 
-![Untitled](SKYDAYS%20CTF%20PWN-01%2074b99a0800c0420ba88c7719d3edc728/Untitled%204.png)
+![Untitled](assets/4.png)
 
  “entry” fonksiyonu bizi ‘FUN_0040128e’ fonksiyonuna yani “main” fonksiyonuna gönderiyor. “main” fonksiyonuna bakalım:
 
-![Untitled](SKYDAYS%20CTF%20PWN-01%2074b99a0800c0420ba88c7719d3edc728/Untitled%205.png)
+![Untitled](assets/5.png)
 
  “main” fonksiyonu ise benzer bir şekilde ‘FUN_00401231’ fonksiyonunu çağırıyor. ‘FUN_00401231’ fonksiyonuna bakalım:
 
-![Untitled](SKYDAYS%20CTF%20PWN-01%2074b99a0800c0420ba88c7719d3edc728/Untitled%206.png)
+![Untitled](assets/6.png)
 
  Programı çalıştırdığımızda karşımıza çıkan ekranın kodunu görüyoruz. Bu kod başka bir fonksiyonu çağırmıyor fakat bayrağı bize verecek fonksiyonu bulmamız gerek. Bunun için diğer fonksiyonlara bakalım:
 
-![Untitled](SKYDAYS%20CTF%20PWN-01%2074b99a0800c0420ba88c7719d3edc728/Untitled%207.png)
+![Untitled](assets/7.png)
 
  Karşımıza böyle ilginç bir fonksiyon çıkıyor. Bu fonksiyon üç adet parametre alıyor ve bu parametreler sırasıyla ‘0xdeadbeef’, ‘0xc0debabe’ ve ‘0xcacadada’ değerlerine eşit olursa ‘flag.txt’ dosyasının içeriğini ekrana yazdırıyor. Eğer parametreler bu değerlere eşit değilse ekrana “Nope, that’s not how you’re supposed to solve this challenge :D” yazdırıyor.
 
@@ -48,21 +48,21 @@
 
  Öncelikle programımızı ‘debugger’ yardımıyla çalıştırıp ‘rip register’ının ‘offset’ini bulmamız gerek. Bunu şu şekilde yapabiliriz:
 
-![Untitled](SKYDAYS%20CTF%20PWN-01%2074b99a0800c0420ba88c7719d3edc728/Untitled%208.png)
+![Untitled](assets/8.png)
 
  Burada ‘rsp register’ına dolan en soldaki değerlerden sonraki değerler ‘rip register’ına ulaşacak değerlerdir. Bundan dolayı ‘offset’imizi öğrenmek için ‘daaaaaaa’ değerinin ‘pattern’imizde kaçıncı sırada geldiğini bulmamız gerekir:
 
-![Untitled](SKYDAYS%20CTF%20PWN-01%2074b99a0800c0420ba88c7719d3edc728/Untitled%209.png)
+![Untitled](assets/9.png)
 
  Böylelikle ‘offset’imizin 24 olduğunu bulmuş olduk, bu ileride işimize yarayacak.
 
  Bayrağı yazdıracak fonksiyona dönmek için bu fonksiyonun adresine ihtiyacımız var. Sadece dönmemiz de yetmeyecek, parametreleri de uygun değerlerle eşleştirmemiz gerekiyor. Bunun için önce parametreleri oluşturmalı daha sonra fonksiyonu çağırmalıyız. Parametrelerin hangi ‘register’lar ile kontrol edildiğini öğrenmek için ‘ghidra’da açtığımız fonksiyonun ‘assembly’ kısmına bakalım:
 
-![Untitled](SKYDAYS%20CTF%20PWN-01%2074b99a0800c0420ba88c7719d3edc728/Untitled%2010.png)
+![Untitled](assets/10.png)
 
  Fonksiyonun adresini ‘0x401176’ olarak bulmuş olduk. Parametreleri program sırasıyla ‘rdi’, ‘rsi’, ‘rdx’ ‘register’larındaki değerlerle karşılaştırıyor yani bu ‘register’lara uygun değerleri yazmamız gerekecek. Bunu yapmak için ise ‘pop’ ‘gadget’ına ihtiyacımız var. ‘Ropper’ aletini kullanarak bu ‘gadget’lara ulaşabiliriz:
 
-![Untitled](SKYDAYS%20CTF%20PWN-01%2074b99a0800c0420ba88c7719d3edc728/Untitled%2011.png)
+![Untitled](assets/11.png)
 
  Bize gereken ‘gadget’ları bulmuş olduk. Bunları not edelim. İhtiyacımız olan bilgileri elde ettiğimize göre artık ‘script’imizi yazabiliriz:
 
@@ -121,7 +121,7 @@ io.interactive()
 
  ‘script’imizi çalıştırdığımızda bayrağımızı elde ediyoruz:
 
-![Untitled](SKYDAYS%20CTF%20PWN-01%2074b99a0800c0420ba88c7719d3edc728/Untitled%2012.png)
+![Untitled](assets/12.png)
 
 ---
 
