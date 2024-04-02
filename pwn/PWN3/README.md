@@ -15,7 +15,7 @@ file /home/skysec/challenge
 
 ![file](assets/file.png)
 
-`/flag` dosyasını root olmadan, skysec kullanıcısı ile okuyamıyoruz; ancak gördüğünüz üzere challenge dosyamızın `SUID` biti aktif. Yani biz bu dosya üzerinden herhangi bir işlem yaptığımız zaman, yapacağımız işlemler (%95'i) root yetkilerine sahip olacaktır.
+`/flag` dosyasını root olmadan, skysec kullanıcısı ile okuyamıyoruz; ancak gördüğünüz üzere challenge dosyamızın `SUID` biti aktif. Yani biz bu dosya üzerinden herhangi bir işlem yaptığımız zaman, yapacağımız işlemler root yetkilerine sahip olacaktır.
 
 Şimdi sorunun içeriğine bakalım:
 
